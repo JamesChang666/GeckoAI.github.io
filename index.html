@@ -1,1091 +1,296 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="page_title">James Chang - CV</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    :root {
-      --primary: #1a4d8f;
-      --secondary: #e0e6ed;
-      --bg: #f7f9fa;
-      --white: #fff;
-      --text: #222;
-    }
-    body.dark-mode, .dark-mode {
-      --primary: #7bb1ff;
-      --secondary: #232b3a;
-      --bg: #181c24;
-      --white: #232b3a;
-      --text: #e0e6ed;
-    }
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: var(--white);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .navbar {
-      max-width: 950px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 32px;
-      gap: 12px;
-    }
-    .navbar-logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--primary);
-      letter-spacing: 1px;
-    }
-    .navbar-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-    .navbar-actions {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      margin-left: 18px;
-    }
-    .theme-toggle, .lang-toggle, .download-btn {
-      background: none;
-      border: none;
-      color: var(--primary);
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 4px 8px;
-      border-radius: 5px;
-      transition: background 0.2s;
-    }
-    .theme-toggle:hover, .lang-toggle:hover, .download-btn:hover {
-      background: var(--secondary);
-    }
-    .navbar-links a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.08rem;
-      transition: color 0.2s;
-    }
-    .navbar-links a:hover {
-      color: #0d2c53;
-    }
-    .hero {
-      max-width: 950px;
-      margin: 40px auto 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-      padding: 40px 32px 32px 32px;
-    }
-    .hero-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: var(--secondary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .hero-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .hero-info {
-      flex: 1;
-    }
-    .hero-name {
-      font-size: 2.3rem;
-      font-weight: bold;
-      color: var(--primary);
-      margin-bottom: 0.2em;
-    }
-    .hero-title {
-      font-size: 1.2rem;
-      color: #3a6bb1;
-      margin-bottom: 0.7em;
-      font-weight: 500;
-    }
-    .hero-social {
-      display: flex;
-      gap: 18px;
-      margin-bottom: 0.7em;
-    }
-    .hero-social a {
-      color: var(--primary);
-      font-size: 1.3rem;
-      transition: color 0.2s;
-    }
-    .hero-social a:hover {
-      color: #0d2c53;
-    }
-    .hero-contact {
-      font-size: 1.08rem;
-      color: #444;
-    }
-    .container {
-      max-width: 950px;
-      margin: 32px auto;
-      background: var(--white);
-      border-radius: 10px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-      padding: 40px 32px;
-    }
-    .section-title {
-      font-size: 1.3rem;
-      border-bottom: 2px solid var(--secondary);
-      padding-bottom: 4px;
-      margin-bottom: 18px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .edu, .exp {
-      margin-bottom: 18px;
-    }
-    .edu-title, .exp-title {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: var(--primary);
-    }
-    .edu-meta, .exp-meta {
-      font-size: 0.98rem;
-      color: #555;
-      margin-bottom: 4px;
-    }
-    .proj-list {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .proj-card {
-      background: var(--secondary);
-      border-radius: 8px;
-      padding: 18px 18px 12px 18px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      width: 100%;
-    }
-    .proj-title {
-      font-weight: bold;
-      font-size: 1.08rem;
-      color: var(--primary);
-    }
-    .proj-title a {
-      color: inherit;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-    }
-    .proj-title a:hover {
-      text-decoration: underline;
-    }
-    .proj-meta {
-      font-size: 0.97rem;
-      color: #555;
-      margin-bottom: 2px;
-    }
-    .proj-card ul {
-      margin: 0 0 0 1.1em;
-      padding: 0;
-    }
-    .skills-list, .lang-list, .tools-list, .cert-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .skills-list li, .lang-list li, .tools-list li, .cert-list li {
-      background: var(--secondary);
-      border-radius: 5px;
-      padding: 4px 12px;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .skills-list i, .tools-list i {
-      font-size: 1.1em;
-    }
-    .timeline {
-      position: relative;
-      margin-left: 28px;
-      padding-left: 48px;
-      border-left: 3px solid var(--primary);
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .timeline-item {
-      display: flex;
-      align-items: center;
-      position: relative;
-      min-height: 70px;
-      margin-bottom: 0;
-    }
-    .timeline-dot {
-      width: 18px;
-      height: 18px;
-      background: var(--primary);
-      border-radius: 50%;
-      position: absolute;
-      left: -17px;
-      top: 4px;
-      border: 3px solid var(--white);
-      box-shadow: 0 0 0 2px var(--primary);
-      z-index: 2;
-    }
-    .timeline-date {
-      min-width: 80px;
-      max-width: 110px;
-      font-weight: bold;
-      color: var(--primary);
-      font-size: 1.05rem;
-      margin-right: 20px;
-      margin-top: 2px;
-      padding-top: 2px;
-      text-align: right;
-      flex-shrink: 0;
-      line-height: 1.6;
-    }
-    .timeline-content {
-      background: var(--secondary);
-      border-radius: 10px;
-      padding: 18px 28px 16px 28px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-      flex: 1;
-      min-width: 0;
-      margin-left: 0;
-    }
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: none;
-      z-index: 100;
-    }
-    .back-to-top.show {
-      display: block;
-    }
-    @media (max-width: 1200px) {
-      .timeline-date {
-        min-width: 60px;
-        max-width: 80px;
-        font-size: 0.98rem;
-        margin-right: 10px;
-      }
-      .timeline-content {
-        padding: 14px 10px 12px 14px;
-      }
-    }
-    @media (max-width: 700px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .navbar-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-      }
-      .navbar-actions {
-        margin-left: 0;
-        align-self: flex-end;
-      }
-      .hero {
-        flex-direction: column;
-        gap: 18px;
-        text-align: center;
-        padding: 24px 6vw;
-      }
-      .hero-img {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-      }
-      .hero-name {
-        font-size: 1.8rem;
-      }
-      .hero-title {
-        font-size: 1rem;
-      }
-      .hero-social {
-        justify-content: center;
-      }
-      .hero-contact {
-        font-size: 0.95rem;
-        line-height: 1.5;
-      }
-      .container {
-        padding: 24px 5vw;
-      }
-      .timeline {
-        padding-left: 0;
-        margin-left: 0;
-        border-left: none;
-        gap: 28px;
-      }
-      .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-        min-height: unset;
-      }
-      .timeline-dot {
-        display: none;
-      }
-      .timeline-date {
-        min-width: unset;
-        max-width: unset;
-        margin: 0 0 6px 0;
-        text-align: left;
-        font-size: 1rem;
-        font-weight: bold;
-        display: block;
-      }
-      .timeline-content {
-        padding: 14px;
-        margin-left: 0;
-        width: 100%;
-      }
-      .proj-card {
-        padding: 16px;
-        gap: 6px;
-      }
-      .proj-title {
-        font-size: 1.1rem;
-      }
-      .proj-meta {
-        font-size: 0.96rem;
-      }
-      .skills-categories {
-        gap: 24px 20px;
-      }
-      .skills-list li,
-      .lang-list li,
-      .cert-list li {
-        font-size: 0.95rem;
-        padding: 6px 10px;
-      }
-      .navbar-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 1.6rem;
-        color: var(--primary);
-        cursor: pointer;
-      }
-      .navbar-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-      }
-      .navbar-links.show {
-        display: flex;
-        animation: slideDown 0.25s ease-out;
-      }
-      @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-8px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    }
-    @media print {
-      body {
-        background: #fff;
-        color: #000;
-      }
-      .navbar, .navbar-actions, .theme-toggle, .lang-toggle, .navbar-toggle, .back-to-top, .download-btn {
-        display: none;
-      }
-      .container, .hero {
-        box-shadow: none;
-        border: none;
-      }
-      .timeline-dot, .timeline {
-        border: none;
-      }
-      .timeline-date {
-        text-align: left;
-        font-weight: bold;
-      }
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeckoAI | 工業視覺標註與檢測平台</title>
+  <meta
+    name="description"
+    content="GeckoAI 是結合標註、訓練、檢測、Golden 比對、OCR 與報表輸出的工業 AI 視覺平台。"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <noscript>
-    <div style="text-align: center; padding: 20px; background: #ffebee; color: #d32f2f;">
-      JavaScript is disabled. Please enable JavaScript to use dark mode, language switching, and PDF download features.
-    </div>
-  </noscript>
-  <header>
-    <nav class="navbar">
-      <div class="navbar-logo">James Chang</div>
-      <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-      <div class="navbar-links" id="navbarLinks" aria-hidden="true">
-        <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#education" data-i18n="nav_education">Education</a>
-        <a href="#experience" data-i18n="nav_experience">Experience</a>
-        <a href="#projects" data-i18n="nav_projects">Projects</a>
-        <a href="#skills" data-i18n="nav_skills">Skills</a>
-        <a href="#certifications" data-i18n="nav_certifications">Certifications</a>
-        <span class="navbar-actions">
-          <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
-          <button class="lang-toggle" id="langToggle" data-i18n="lang_toggle_title">Switch language</button>
-          <button class="download-btn" id="downloadBtn" data-i18n="download_btn_title" aria-label="Download CV as PDF">Download CV as PDF</button>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#hero">
+        <span class="brand-mark">G</span>
+        <span class="brand-text">
+          <strong>GeckoAI</strong>
+          <small>Industrial Vision Platform</small>
         </span>
-      </div>
-    </nav>
-  </header>
-  <section class="hero" id="about">
-    <div class="hero-img">
-      <img src="https://ui-avatars.com/api/?name=James+Chang&background=1a4d8f&color=fff&size=256" alt="James Chang">
-    </div>
-    <div class="hero-info">
-      <div class="hero-name">James Chang</div>
-      <div class="hero-title" data-i18n="hero_title">Mechatronics Engineer | Robotics & AI Enthusiast</div>
-      <div class="hero-social">
-        <a href="https://linkedin.com/in/chi-chun-chang-69a73335b" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:james273899@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-      </div>
-      <div class="hero-contact">
-        <span data-i18n="hero_location"><i class="fas fa-map-marker-alt"></i> Wellington, New Zealand</span> &nbsp;|&nbsp;
-        <span data-i18n="hero_phone"><i class="fas fa-phone"></i> +64 2040039000</span>
-      </div>
-    </div>
-  </section>
-  <div class="container">
-    <div class="section" id="education">
-      <div class="section-title" data-i18n="education_title">EDUCATION</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date" data-i18n="edu1_date">2025<br>-<br>now</div>
-          <div class="timeline-content">
-            <div class="edu-title" data-i18n="edu1_school">Victoria University of Wellington</div>
-            <div class="edu-meta" data-i18n="edu1_location">Wellington, New Zealand</div>
-            <div data-i18n="edu1_degree">Master of Engineering Practice (Mechatronic & Electrical Engineering)</div>
-            <ul>
-              <li data-i18n="edu1_desc1">PowerFactory-DIgSILENT, SolidWorks, Engineering Management, Git</li>
-            </ul>
+      </a>
+      <nav class="nav">
+        <a href="#platform">平台能力</a>
+        <a href="#workflow">工作流程</a>
+        <a href="#scenarios">應用場景</a>
+        <a href="#contact">聯絡方式</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/JamesChang666/GeckoAI" target="_blank" rel="noreferrer">
+        View GitHub
+      </a>
+    </header>
+
+    <main>
+      <section class="hero reveal" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Smart Labeling. Visual Inspection. Actionable Reports.</p>
+          <h1>把工業影像從資料蒐集，直接推進到可交付的 AI 檢測成果。</h1>
+          <p class="hero-lead">
+            GeckoAI 專為製造與品質檢測場景打造，將資料標註、YOLO 訓練、Golden Template 比對、
+            OCR Traceability 與管理報表整合成一個可部署的產品介紹級平台。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">預約產品介紹</a>
+            <a class="button button-secondary" href="#platform">查看功能亮點</a>
+          </div>
+          <ul class="hero-points">
+            <li>桌面 GUI + CLI 雙模式，兼顧現場操作與系統整合</li>
+            <li>支援一般框、旋轉 OBB、Golden 比對、OCR、報表輸出</li>
+            <li>適用於包裝檢查、咖啡豆分級、PCBA 檢測等多種場景</li>
+          </ul>
+        </div>
+
+        <div class="hero-stage">
+          <div class="signal-card glass">
+            <span class="signal-label">Unified Workflow</span>
+            <div class="signal-grid">
+              <div>
+                <strong>Label</strong>
+                <p>Bounding Box / OBB / Class 管理</p>
+              </div>
+              <div>
+                <strong>Train</strong>
+                <p>YOLO / YOLO-OBB / CPU-GPU Runtime</p>
+              </div>
+              <div>
+                <strong>Inspect</strong>
+                <p>Golden Compare / OCR / PASS-FAIL</p>
+              </div>
+              <div>
+                <strong>Report</strong>
+                <p>CSV / XLSX / HTML / PDF Dashboard</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-panel glass">
+            <div class="preview-header">
+              <span class="dot red"></span>
+              <span class="dot amber"></span>
+              <span class="dot green"></span>
+              <span class="preview-title">GeckoAI inspection snapshot</span>
+            </div>
+            <div class="preview-content">
+              <div class="preview-image">
+                <span class="scan-line"></span>
+                <div class="bbox one">label</div>
+                <div class="bbox two">seal</div>
+                <div class="bbox three">valve</div>
+                <div class="status-chip pass">PASS 98.6%</div>
+              </div>
+              <div class="preview-report">
+                <div class="report-row">
+                  <span>Golden match</span>
+                  <strong>Aligned</strong>
+                </div>
+                <div class="report-row">
+                  <span>OCR id</span>
+                  <strong>PCBA-2048</strong>
+                </div>
+                <div class="report-row">
+                  <span>Output</span>
+                  <strong>HTML / PDF / XLSX</strong>
+                </div>
+                <div class="report-bars">
+                  <span style="--bar: 92%"></span>
+                  <span style="--bar: 74%"></span>
+                  <span style="--bar: 85%"></span>
+                  <span style="--bar: 66%"></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date" data-i18n="edu2_date">2020<br>-<br>2024</div>
-          <div class="timeline-content">
-            <div class="edu-title" data-i18n="edu2_school">Tamkang University</div>
-            <div class="edu-meta" data-i18n="edu2_location">Taipei, Taiwan</div>
-            <div data-i18n="edu2_degree">Bachelor of Mechanical and Electro-Mechanical Engineering (Opto-Mechatronics Group)</div>
+      </section>
+
+      <section class="stats reveal">
+        <article>
+          <strong>All-in-one</strong>
+          <p>標註、訓練、檢測、OCR、報表整合在同一套流程內</p>
+        </article>
+        <article>
+          <strong>Desktop + CLI</strong>
+          <p>現場操作人員與自動化系統都能使用同一產品</p>
+        </article>
+        <article>
+          <strong>Golden Inspection</strong>
+          <p>支援模板比對、背景切割與 Piece-level 缺陷定位</p>
+        </article>
+        <article>
+          <strong>Management Reports</strong>
+          <p>輸出可直接給 QA、主管與客戶審閱的視覺化成果</p>
+        </article>
+      </section>
+
+      <section class="section reveal" id="platform">
+        <div class="section-heading">
+          <p class="eyebrow">Platform Capabilities</p>
+          <h2>一套平台，串起資料製備到工業檢測決策。</h2>
+        </div>
+        <div class="card-grid">
+          <article class="feature-card">
+            <span class="card-index">01</span>
+            <h3>Label Workspace</h3>
+            <p>提供一般框與旋轉 OBB 標註、類別管理、Undo/Redo、多選編輯與模型輔助標註。</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">02</span>
+            <h3>Detect Workspace</h3>
+            <p>支援批次檢測、Golden Compare、背景切割、Fail Reason 與每張圖像的視覺證據輸出。</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">03</span>
+            <h3>Training Workflow</h3>
+            <p>支援 YOLO / YOLO-OBB 訓練、CPU/GPU Runtime 選擇、進度監控與封裝部署策略。</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">04</span>
+            <h3>Automation Ready CLI</h3>
+            <p>可整合 MES、排程器或產線腳本，支援 Watch Mode、JSON Summary 與 Exit Code 控制。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section workflow reveal" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>專為實際工廠與 QA 現場設計的產品節奏。</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-step">
+            <span>Step 1</span>
+            <h3>匯入影像與資料集</h3>
+            <p>支援圖片資料夾、YOLO Dataset、Golden Package 與相機擷取來源。</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 2</span>
+            <h3>標註與建立標準</h3>
+            <p>快速建立類別、調整 OBB、導出 Golden Package，形成可持續迭代的資料基礎。</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 3</span>
+            <h3>訓練與部署模型</h3>
+            <p>依資料格式自動對應 YOLO 或 YOLO-OBB，並保留 CPU/GPU 相容彈性。</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 4</span>
+            <h3>檢測、比對、輸出報表</h3>
+            <p>執行 Golden Compare、OCR Traceability 與 Dashboard Report，讓決策與追溯更清楚。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="scenarios">
+        <div class="section-heading">
+          <p class="eyebrow">Use Cases</p>
+          <h2>同一套產品，可落地在不同產業的視覺檢測任務。</h2>
+        </div>
+        <div class="scenario-grid">
+          <article class="scenario-card warm">
+            <h3>咖啡包裝檢查</h3>
+            <p>驗證包裝完整性、貼標位置、封口與閥件是否符合標準。</p>
             <ul>
-              <li data-i18n="edu2_desc1">Python, C++, Matlab, Robotics, AutoCAD, Creo, PLC, CNC, Thermodynamics, Fluid Mechanics, Automatic Control, OPTO-Mechatronics</li>
+              <li>Golden Compare 做版型一致性比對</li>
+              <li>PASS / FAIL 理由可直接進入報表</li>
             </ul>
+          </article>
+          <article class="scenario-card earth">
+            <h3>咖啡豆分級</h3>
+            <p>針對碎豆、黑豆、蟲蛀與異物做分類計數，建立品質數據資產。</p>
+            <ul>
+              <li>模型檢測 + 類別統計</li>
+              <li>適合品保與採購決策輔助</li>
+            </ul>
+          </article>
+          <article class="scenario-card tech">
+            <h3>PCBA 缺陷檢測</h3>
+            <p>結合背景切割、Piece 檢測、Golden Compare 與 OCR，鎖定缺件與偏移問題。</p>
+            <ul>
+              <li>支援 board-level 與 piece-level 分析</li>
+              <li>可將 ID / Sub-ID 寫入追溯報表</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section outputs reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Deliverables</p>
+          <h2>輸出不只是一張圖，而是可以交付與審查的結果。</h2>
+        </div>
+        <div class="outputs-layout">
+          <div class="outputs-copy">
+            <p>
+              GeckoAI 將模型結果整理為工程與管理都看得懂的形式，讓現場、QA、主管與客戶能在同一份資料上對齊決策。
+            </p>
+            <div class="output-tags">
+              <span>YOLO Labels</span>
+              <span>Golden Package</span>
+              <span>Rendered Evidence</span>
+              <span>CSV</span>
+              <span>XLSX</span>
+              <span>HTML Dashboard</span>
+              <span>PDF Report</span>
+              <span>JSON Summary</span>
+            </div>
+          </div>
+          <div class="terminal-card glass">
+            <div class="terminal-head">CLI Example</div>
+            <pre><code>GeckoAI-CLI.exe detect ^
+  --model best.pt ^
+  --source C:\inspection\incoming ^
+  --output C:\inspection\results ^
+  --golden-dir C:\inspection\golden ^
+  --save-json summary.json ^
+  --fail-exit-code 10</code></pre>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="section" id="experience">
-      <div class="section-title" data-i18n="experience_title">PROFESSIONAL EXPERIENCE</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date" data-i18n="exp2022_date">Jun 2022<br>-<br>Sep 2022</div>
-          <div class="timeline-content">
-            <div class="exp-title" data-i18n="exp2022_title">Intern, R&D Unit I/Test Development Verification Division R&D Group (Zebra / Denso Mobile Project)</div>
-            <div class="exp-meta" data-i18n="exp2022_company">ASKEY Computer Corporation, Taiwan</div>
-            <ul>
-              <li data-i18n="exp2022_desc1"><strong>Designed detailed 3D mechanical models using PTC Creo, conducting dimensional validation and interference checks across assemblies.</strong></li>
-              <li data-i18n="exp2022_desc2"><strong>Supported thermal simulations to evaluate heat source distribution and improve mechanical cooling strategies.</strong></li>
-              <li data-i18n="exp2022_desc3"><strong>Performed infrared camera testing to correlate simulation data with physical thermal performance, aiding thermal design optimization.</strong></li>
-              <li data-i18n="exp2022_desc4"><strong>Fabricated high-fidelity appearance and functional mockups via CNC machining and soft tooling for assembly and ergonomic testing.</strong></li>
-              <li data-i18n="exp2022_desc5"><strong>Inspected prototypes for fit, finish, and surface quality, contributing to early-stage design for manufacturability (DFM) assessments.</strong></li>
-              <li data-i18n="exp2022_desc6"><strong>Collaborated with industrial design, thermal, and manufacturing engineers to implement design refinements into EVT (Engineering Validation Test) prototypes.</strong></li>
-            </ul>
+      </section>
+
+      <section class="section contact reveal" id="contact">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>想把 GeckoAI 做成對外展示官網、提案頁，或產品銷售頁面，可以直接聯絡。</h2>
+            <p class="contact-note">
+              這個頁面已預留成產品官網方向，可進一步延伸成 GitHub Pages、品牌介紹站或商務提案 landing page。
+            </p>
           </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date" data-i18n="exp2023_date">Jun 2023<br>-<br>Sep 2023</div>
-          <div class="timeline-content">
-            <div class="exp-title" data-i18n="exp2023_title">Intern, R&D Unit I/Test Development Verification Division R&D Group (AGV Project)</div>
-            <div class="exp-meta" data-i18n="exp2023_company">ASKEY Computer Corporation, Taiwan</div>
-            <div class="exp-group-title" data-i18n="exp2023_group1">1. Auto/Intelligent Manufacturing System Integration:</div>
-            <ul>
-              <li data-i18n="exp2023_g1_1"><strong>Graphics: Integration of factory and warehouse space maps and shelf location information.</strong></li>
-              <li data-i18n="exp2023_g1_2"><strong>Positioning: Integration of warehouse and factory fixation sensors.</strong></li>
-              <li data-i18n="exp2023_g1_3"><strong>Optical Matrix: Ground-based optical marking of vehicle and coordinate identification points.</strong></li>
-              <li data-i18n="exp2023_g1_4"><strong>Navigation: Automated moving and delivery truck routing.</strong></li>
-              <li data-i18n="exp2023_g1_5"><strong>Wireless transmission: With WIFI station to transmit commands and assist in confirming the status and location of delivery trucks.</strong></li>
-              <li data-i18n="exp2023_g1_6"><strong>Transportation vehicle configuration: Laser Range Finder, Gsensor, Gyroscope, WiFi 2.4G/5G, motor, Lifting platform.</strong></li>
-            </ul>
-            <div class="exp-group-title" data-i18n="exp2023_group2">2. Design Verification / Validation: Android Smart Phone/Mobile Computer:</div>
-            <ul>
-              <li data-i18n="exp2023_g2_1"><strong>Product & Equipment Auto Test measure system program design.</strong></li>
-              <li data-i18n="exp2023_g2_2"><strong>Product reliability Auto Test program Design.</strong></li>
-            </ul>
-            <div class="exp-group-title" data-i18n="exp2023_group3">3. Big Data & Production Data Integration:</div>
-            <ul>
-              <li data-i18n="exp2023_g3_1"><strong>Cloud production big data system analysis.</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section" id="projects">
-      <div class="section-title" data-i18n="projects_title">ACADEMIC PROJECT EXPERIENCE</div>
-      <ul class="proj-list">
-        <li class="proj-card">
-          <div class="proj-title">
-            <a href="pdfs/training_kit.pdf" target="_blank" class="proj-link" data-i18n="proj1_title">
-              Redesign and Enhancement of Educational Microcontroller Training Kit <i class="fas fa-file-pdf"></i>
+          <div class="contact-card">
+            <span class="contact-label">Product Contact</span>
+            <h3>James (Chi-Chun) Chang</h3>
+            <a href="mailto:james273899@gmail.com">james273899@gmail.com</a>
+            <a href="https://github.com/JamesChang666/GeckoAI" target="_blank" rel="noreferrer">
+              github.com/JamesChang666/GeckoAI
             </a>
           </div>
-          <div class="proj-meta" data-i18n="proj1_goal">Goal: Redesign and Enhancement of Educational Microcontroller Training Kit</div>
-          <ul>
-            <li data-i18n="proj1_desc1">Led the redesign of a microcontroller training platform to improve robustness, manufacturability, and user safety.</li>
-            <li data-i18n="proj1_desc2">Utilized SolidWorks to develop modular protective enclosures, incorporating features for ease of assembly and future upgrades.</li>
-            <li data-i18n="proj1_desc3">Conducted thermal flow and drop-test simulations to assess structural integrity and thermal performance under realistic usage conditions.</li>
-            <li data-i18n="proj1_desc4">Applied Design for Manufacturability (DFM) principles to ensure compatibility with CNC machining and reduce fabrication complexity.</li>
-            <li data-i18n="proj1_desc5">Integrated STM32-based embedded hardware, optimizing the internal layout for safety, accessibility, and cost efficiency.</li>
-            <li data-i18n="proj1_desc6">Delivered complete technical documentation: 3D CAD models, drawings, and assembly guides to support prototyping and transfer to production.</li>
-          </ul>
-        </li>
-        <li class="proj-card">
-          <div class="proj-title">
-            <a href="pdfs/microcontroller_project.pdf" target="_blank" class="proj-link" data-i18n="proj2_title">
-              Room Ventilation Simulation using SolidWorks (CFD Project) <i class="fas fa-file-pdf"></i>
-            </a>
-          </div>
-          <div class="proj-meta" data-i18n="proj2_goal">Goal: To improve indoor ventilation performance through airflow simulation and design optimization.</div>
-          <ul>
-            <li data-i18n="proj2_desc1">Performed Computational Fluid Dynamics (CFD) simulations in SolidWorks to evaluate airflow distribution and ventilation effectiveness within a personal room layout.</li>
-            <li data-i18n="proj2_desc2">Analyzed how vent size and placement affect air exchange rate, circulation efficiency, and thermal comfort.</li>
-            <li data-i18n="proj2_desc3">Identified stagnation zones caused by poorly positioned inlets and outlets, leading to suboptimal ventilation.</li>
-            <li data-i18n="proj2_desc4">Proposed layout and vent modifications that achieved a 10% improvement in air exchange efficiency.</li>
-            <li data-i18n="proj2_desc5">Gained practical insight into spatial airflow design, indoor air quality, and thermal dynamics applicable to enclosed environments.</li>
-          </ul>
-        </li>
-        <li class="proj-card">
-          <div class="proj-title">
-            <a href="pdfs/graduate_project (1).pdf" target="_blank" class="proj-link" data-i18n="proj3_title">
-              Robot Arm Interface Development for Image/Speech Recognition (Graduation Project – Hiwin Technologies Collaboration) <i class="fas fa-file-pdf"></i>
-            </a>
-          </div>
-          <div class="proj-meta" data-i18n="proj3_goal">Goal: To design a natural and safe human-robot interface using multimodal inputs for real-time robotic control.</div>
-          <ul>
-            <li data-i18n="proj3_desc1">Developed a gesture- and speech-based interface combining YOLOv7 visual recognition and audio parsing to enable intuitive robot arm operation.</li>
-            <li data-i18n="proj3_desc2">Built datasets and applied machine learning for robust gesture and voice command classification.</li>
-            <li data-i18n="proj3_desc3">Developed a Python client for front-end processing of image/speech input, converting into command and coordinate data.</li>
-            <li data-i18n="proj3_desc4">Developed a C++ server with non-blocking TCP/IP communication, performing inverse kinematics and motion interpolation for real-time actuation.</li>
-            <li data-i18n="proj3_desc5">Implemented mechatronic safety mechanisms, including proximity sensors, motion monitoring, and hardware E-Stop to ensure human-safe interaction.</li>
-            <li data-i18n="proj3_desc6">Delivered functional prototypes with API documentation, annotated datasets, and coordinate calibration tools for system reproducibility.</li>
-          </ul>
-        </li>
-        <li class="proj-card">
-          <div class="proj-title">
-            <a href="pdfs/traffic_light_project.pdf" target="_blank" class="proj-link" data-i18n="proj4_title">
-              Intelligent Traffic Light Control System (Control Systems Project) <i class="fas fa-file-pdf"></i>
-            </a>
-          </div>
-          <div class="proj-meta" data-i18n="proj4_goal">Goal: To optimize intersection traffic light timing based on real-time pedestrian/vehicle detection and provide emergency response routing.</div>
-          <ul>
-            <li data-i18n="proj4_desc1">Used Delta PLC (DVP48EH) to control traffic and pedestrian lights based on sensor input.</li>
-            <li data-i18n="proj4_desc2">Applied Python + YOLOv5 for real-time detection of pedestrians, vehicles, and emergency signals.</li>
-            <li data-i18n="proj4_desc3">Integrated GNSS and Wi-Fi positioning for incident localization and emergency route planning.</li>
-            <li data-i18n="proj4_desc4">Designed multi-sensor fusion logic (camera + microphone) to identify approaching ambulances/fire trucks.</li>
-            <li data-i18n="proj4_desc5">Implemented adaptive signal timing to reduce congestion and improve traffic flow across intersections.</li>
-          </ul>
-        </li>
-        <li class="proj-card">
-          <div class="proj-title">
-            <a href="pdfs/kinova_motion and gripper design.pdf" target="_blank" class="proj-link" data-i18n="proj5_title">
-              Kinova Gen3 Robotic Arm Simulation and Surgical Gripper Design <i class="fas fa-file-pdf"></i>
-            </a>
-          </div>
-          <div class="proj-meta" data-i18n="proj5_goal">Goal: To develop a ROS 2-based simulation and control framework for precision gripping of surgical instruments with a customized 3D-printed gripper.</div>
-          <ul>
-            <li data-i18n="proj5_desc1">Configured a full simulation environment on Ubuntu integrating ROS 2, MoveIt 2, and Gazebo for the Kinova Gen3 six-axis robotic arm.</li>
-            <li data-i18n="proj5_desc2">Developed Python scripts using rclpy to perform inverse kinematics computations and execute motion plans to target poses.</li>
-            <li data-i18n="proj5_desc3">Designed and modeled a 3D-printed surgical gripper with an arc-shaped cavity for stable clamping of pen-type surgical tools (approx. 6–8 mm diameter).</li>
-            <li data-i18n="proj5_desc4">Imported the gripper model into Gazebo and validated grasping performance through repeated simulation trials.</li>
-            <li data-i18n="proj5_desc5">Implemented interactive control interfaces to adjust target positions and trigger grasp/release actions during simulation runtime.</li>
-            <li data-i18n="proj5_desc6">Verified coordinated motion and stability, demonstrating reliable pickup and placement of virtual surgical instruments.</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="section" id="skills">
-      <div class="section-title" data-i18n="skills_title">SKILLS</div>
-      <div class="skills-categories">
-        <div class="skills-category">
-          <div class="skills-category-title" data-i18n="skills_programming">Programming Languages</div>
-          <ul class="skills-list">
-            <li data-i18n="skills_prog_python"><i class="fab fa-python"></i> Python (AI/ML, computer vision, data processing, simulation scripting)</li>
-            <li data-i18n="skills_prog_cpp"><i class="fas fa-microchip"></i> C++ (real-time systems, TCP/IP, motion control)</li>
-            <li data-i18n="skills_prog_matlab"><i class="fas fa-superscript"></i> Matlab</li>
-          </ul>
         </div>
-        <div class="skills-category">
-          <div class="skills-category-title" data-i18n="skills_engineering">Engineering & Simulation</div>
-          <ul class="skills-list">
-            <li data-i18n="skills_eng_autocad"><i class="fas fa-drafting-compass"></i> AutoCAD (2D & 3D)</li>
-            <li data-i18n="skills_eng_creo"><i class="fas fa-cube"></i> Creo</li>
-            <li data-i18n="skills_eng_solidworks"><i class="fas fa-cubes"></i> SolidWorks</li>
-            <li data-i18n="skills_eng_powerfactory"><i class="fas fa-bolt"></i> PowerFactory</li>
-            <li data-i18n="skills_eng_wpl"><i class="fas fa-project-diagram"></i> WPL (PLC design)</li>
-          </ul>
-        </div>
-        <div class="skills-category">
-          <div class="skills-category-title" data-i18n="skills_robotics">Robotics & Automation</div>
-          <ul class="skills-list">
-            <li data-i18n="skills_rob_robotics"><i class="fas fa-robot"></i> Robotics</li>
-            <li data-i18n="skills_rob_plc"><i class="fas fa-project-diagram"></i> PLC</li>
-            <li data-i18n="skills_rob_cnc"><i class="fas fa-industry"></i> CNC</li>
-            <li data-i18n="skills_rob_optomech"><i class="fas fa-lightbulb"></i> OPTO-Mechatronics</li>
-            <li data-i18n="skills_rob_autocontrol"><i class="fas fa-sliders-h"></i> Automatic Control</li>
-          </ul>
-        </div>
-        <div class="skills-category">
-          <div class="skills-category-title" data-i18n="skills_frameworks">Frameworks & Libraries</div>
-          <ul class="skills-list">
-            <li data-i18n="skills_fw_yolov7"><i class="fas fa-eye"></i> YOLOv7</li>
-            <li data-i18n="skills_fw_opencv"><i class="fas fa-camera"></i> OpenCV</li>
-            <li data-i18n="skills_fw_mediapipe"><i class="fas fa-hand-paper"></i> MediaPipe</li>
-            <li data-i18n="skills_fw_tfpt"><i class="fas fa-brain"></i> TensorFlow / PyTorch</li>
-          </ul>
-        </div>
-        <div class="skills-category">
-          <div class="skills-category-title" data-i18n="skills_other">Other Technical Skills</div>
-          <ul class="skills-list">
-            <li data-i18n="skills_other_thermo"><i class="fas fa-fire"></i> Thermodynamics</li>
-            <li data-i18n="skills_other_fluid"><i class="fas fa-water"></i> Fluid Mechanics</li>
-            <li data-i18n="skills_other_git"><i class="fab fa-git-alt"></i> Git</li>
-            <li data-i18n="skills_other_azure"><i class="fab fa-microsoft"></i> Microsoft Azure</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="section" id="languages">
-      <div class="section-title" data-i18n="languages_title">LANGUAGES</div>
-      <ul class="lang-list">
-        <li data-i18n="lang_english">English</li>
-        <li data-i18n="lang_mandarin">Mandarin (Taiwanese)</li>
-      </ul>
-    </div>
-    <div class="section" id="certifications">
-      <div class="section-title" data-i18n="certifications_title">CERTIFICATIONS</div>
-      <ul class="cert-list">
-        <li data-i18n="cert_ai900">Azure AI Fundamentals (AI-900) – Microsoft</li>
-      </ul>
-    </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>GeckoAI Product Website</p>
+      <p>James (Chi-Chun) Chang · james273899@gmail.com</p>
+    </footer>
   </div>
-  <footer>
-    &copy; 2024 James Chang &mdash; <a href="mailto:james273899@gmail.com" style="color:#1a4d8f;text-decoration:none;" data-i18n="footer_contact">Contact Me</a> | <span data-i18n="footer_location">Wellington, New Zealand</span>
-  </footer>
-  <script>
-    // --- Mobile Navbar Toggle ---
-    const navbarToggle = document.getElementById('navbarToggle');
-    const navbarLinks = document.getElementById('navbarLinks');
-    navbarToggle.addEventListener('click', () => {
-      const isExpanded = navbarLinks.classList.toggle('show');
-      navbarToggle.setAttribute('aria-expanded', isExpanded);
-      navbarLinks.setAttribute('aria-hidden', !isExpanded);
-    });
 
-    // --- Smooth Scroll for Anchor Links ---
-    document.querySelectorAll('.navbar-links a').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = anchor.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-        if (window.innerWidth <= 700) {
-          navbarLinks.classList.remove('show');
-          navbarToggle.setAttribute('aria-expanded', 'false');
-          navbarLinks.setAttribute('aria-hidden', 'true');
-        }
-      });
-    });
-
-    // --- Dark Mode ---
-    const themeToggle = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = (() => {
-      try {
-        return localStorage.getItem('theme');
-      } catch (e) {
-        return null;
-      }
-    })();
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      document.body.classList.add('dark-mode');
-      themeToggle.textContent = '☀️';
-    }
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      themeToggle.textContent = isDark ? '☀️' : '🌙';
-      try {
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      } catch (e) {
-        console.warn('localStorage not available:', e);
-      }
-    });
-
-    // --- Language Switch ---
-    const langToggle = document.getElementById('langToggle');
-    const downloadBtn = document.getElementById('downloadBtn'); // Single declaration
-    let currentLang = (() => {
-      try {
-        return localStorage.getItem('lang') || 'en';
-      } catch (e) {
-        return 'en';
-      }
-    })();
-    const i18n = {
-      en: {
-        page_title: 'James Chang - CV',
-        nav_about: 'About',
-        nav_education: 'Education',
-        nav_experience: 'Experience',
-        nav_projects: 'Projects',
-        nav_skills: 'Skills',
-        nav_certifications: 'Certifications',
-        lang_toggle_title: 'Mandarin ',
-        download_btn_title: '<i class="fas fa-download"></i>',
-        hero_title: 'Mechatronics Engineer | Robotics & AI Enthusiast',
-        hero_location: '<i class="fas fa-map-marker-alt"></i> Wellington, New Zealand',
-        hero_phone: '<i class="fas fa-phone"></i> +64 2040039000',
-        skills_title: 'SKILLS',
-        skills_programming: 'Programming Languages',
-        skills_engineering: 'Engineering & Simulation',
-        skills_robotics: 'Robotics & Automation',
-        skills_frameworks: 'Frameworks & Libraries',
-        skills_other: 'Other Technical Skills',
-        languages_title: 'LANGUAGES',
-        certifications_title: 'CERTIFICATIONS',
-        education_title: 'EDUCATION',
-        edu1_date: '2025<br>-<br>now',
-        edu1_school: 'Victoria University of Wellington',
-        edu1_location: 'Wellington, New Zealand',
-        edu1_degree: 'Master of Engineering Practice (Mechatronic & Electrical Engineering)',
-        edu1_desc1: 'PowerFactory-DIgSILENT, SolidWorks, Engineering Management, Git',
-        edu2_date: '2020<br>-<br>2024',
-        edu2_school: 'Tamkang University',
-        edu2_location: 'Taipei, Taiwan',
-        edu2_degree: 'Bachelor of Mechanical and Electro-Mechanical Engineering (Opto-Mechatronics Group)',
-        edu2_desc1: 'Python, C++, Matlab, Robotics, AutoCAD, Creo, PLC, CNC, Thermodynamics, Fluid Mechanics, Automatic Control, OPTO-Mechatronics',
-        experience_title: 'PROFESSIONAL EXPERIENCE',
-        exp2022_date: 'Jun 2022<br>-<br>Sep 2022',
-        exp2022_title: 'Intern, R&D Unit I/Test Development Verification Division R&D Group (Zebra / Denso Mobile Project)',
-        exp2022_company: 'ASKEY Computer Corporation, Taiwan',
-        exp2022_desc1: '<strong>Designed detailed 3D mechanical models using PTC Creo, conducting dimensional validation and interference checks across assemblies.</strong>',
-        exp2022_desc2: '<strong>Supported thermal simulations to evaluate heat source distribution and improve mechanical cooling strategies.</strong>',
-        exp2022_desc3: '<strong>Performed infrared camera testing to correlate simulation data with physical thermal performance, aiding thermal design optimization.</strong>',
-        exp2022_desc4: '<strong>Fabricated high-fidelity appearance and functional mockups via CNC machining and soft tooling for assembly and ergonomic testing.</strong>',
-        exp2022_desc5: '<strong>Inspected prototypes for fit, finish, and surface quality, contributing to early-stage design for manufacturability (DFM) assessments.</strong>',
-        exp2022_desc6: '<strong>Collaborated with industrial design, thermal, and manufacturing engineers to implement design refinements into EVT (Engineering Validation Test) prototypes.</strong>',
-        exp2023_date: 'Jun 2023<br>-<br>Sep 2023',
-        exp2023_title: 'Intern, R&D Unit I/Test Development Verification Division R&D Group (AGV Project)',
-        exp2023_company: 'ASKEY Computer Corporation, Taiwan',
-        exp2023_group1: '1. Auto/Intelligent Manufacturing System Integration:',
-        exp2023_g1_1: '<strong>Graphics: Integration of factory and warehouse space maps and shelf location information.</strong>',
-        exp2023_g1_2: '<strong>Positioning: Integration of warehouse and factory fixation sensors.</strong>',
-        exp2023_g1_3: '<strong>Optical Matrix: Ground-based optical marking of vehicle and coordinate identification points.</strong>',
-        exp2023_g1_4: '<strong>Navigation: Automated moving and delivery truck routing.</strong>',
-        exp2023_g1_5: '<strong>Wireless transmission: With WIFI station to transmit commands and assist in confirming the status and location of delivery trucks.</strong>',
-        exp2023_g1_6: '<strong>Transportation vehicle configuration: Laser Range Finder, Gsensor, Gyroscope, WiFi 2.4G/5G, motor, Lifting platform.</strong>',
-        exp2023_group2: '2. Design Verification / Validation: Android Smart Phone/Mobile Computer:',
-        exp2023_g2_1: '<strong>Product & Equipment Auto Test measure system program design.</strong>',
-        exp2023_g2_2: '<strong>Product reliability Auto Test program Design.</strong>',
-        exp2023_group3: '3. Big Data & Production Data Integration:',
-        exp2023_g3_1: '<strong>Cloud production big data system analysis.</strong>',
-        projects_title: 'ACADEMIC PROJECT EXPERIENCE',
-        proj1_title: 'Redesign and Enhancement of Educational Microcontroller Training Kit',
-        proj1_goal: 'Goal: Redesign and Enhancement of Educational Microcontroller Training Kit',
-        proj1_desc1: 'Led the redesign of a microcontroller training platform to improve robustness, manufacturability, and user safety.',
-        proj1_desc2: 'Utilized SolidWorks to develop modular protective enclosures, incorporating features for ease of assembly and future upgrades.',
-        proj1_desc3: 'Conducted thermal flow and drop-test simulations to assess structural integrity and thermal performance under realistic usage conditions.',
-        proj1_desc4: 'Applied Design for Manufacturability (DFM) principles to ensure compatibility with CNC machining and reduce fabrication complexity.',
-        proj1_desc5: 'Integrated STM32-based embedded hardware, optimizing the internal layout for safety, accessibility, and cost efficiency.',
-        proj1_desc6: 'Delivered complete technical documentation: 3D CAD models, drawings, and assembly guides to support prototyping and transfer to production.',
-        proj2_title: 'Room Ventilation Simulation using SolidWorks (CFD Project)',
-        proj2_goal: 'Goal: To improve indoor ventilation performance through airflow simulation and design optimization.',
-        proj2_desc1: 'Performed Computational Fluid Dynamics (CFD) simulations in SolidWorks to evaluate airflow distribution and ventilation effectiveness within a personal room layout.',
-        proj2_desc2: 'Analyzed how vent size and placement affect air exchange rate, circulation efficiency, and thermal comfort.',
-        proj2_desc3: 'Identified stagnation zones caused by poorly positioned inlets and outlets, leading to suboptimal ventilation.',
-        proj2_desc4: 'Proposed layout and vent modifications that achieved a 10% improvement in air exchange efficiency.',
-        proj2_desc5: 'Gained practical insight into spatial airflow design, indoor air quality, and thermal dynamics applicable to enclosed environments.',
-        proj3_title: 'Robot Arm Interface Development for Image/Speech Recognition (Graduation Project – Hiwin Technologies Collaboration)',
-        proj3_goal: 'Goal: To design a natural and safe human-robot interface using multimodal inputs for real-time robotic control.',
-        proj3_desc1: 'Developed a gesture- and speech-based interface combining YOLOv7 visual recognition and audio parsing to enable intuitive robot arm operation.',
-        proj3_desc2: 'Built datasets and applied machine learning for robust gesture and voice command classification.',
-        proj3_desc3: 'Developed a Python client for front-end processing of image/speech input, converting into command and coordinate data.',
-        proj3_desc4: 'Developed a C++ server with non-blocking TCP/IP communication, performing inverse kinematics and motion interpolation for real-time actuation.',
-        proj3_desc5: 'Implemented mechatronic safety mechanisms, including proximity sensors, motion monitoring, and hardware E-Stop to ensure human-safe interaction.',
-        proj3_desc6: 'Delivered functional prototypes with API documentation, annotated datasets, and coordinate calibration tools for system reproducibility.',
-        proj4_title: 'Intelligent Traffic Light Control System (Control Systems Project)',
-        proj4_goal: 'Goal: To optimize intersection traffic light timing based on real-time pedestrian/vehicle detection and provide emergency response routing.',
-        proj4_desc1: 'Used Delta PLC (DVP48EH) to control traffic and pedestrian lights based on sensor input.',
-        proj4_desc2: 'Applied Python + YOLOv5 for real-time detection of pedestrians, vehicles, and emergency signals.',
-        proj4_desc3: 'Integrated GNSS and Wi-Fi positioning for incident localization and emergency route planning.',
-        proj4_desc4: 'Designed multi-sensor fusion logic (camera + microphone) to identify approaching ambulances/fire trucks.',
-        proj4_desc5: 'Implemented adaptive signal timing to reduce congestion and improve traffic flow across intersections.',
-        proj5_title: 'Kinova Gen3 Robotic Arm Simulation and Surgical Gripper Design',
-        proj5_goal: 'Goal: To develop a ROS 2-based simulation and control framework for precision gripping of surgical instruments with a customized 3D-printed gripper.',
-        proj5_desc1: 'Configured a full simulation environment on Ubuntu integrating ROS 2, MoveIt 2, and Gazebo for the Kinova Gen3 six-axis robotic arm.',
-        proj5_desc2: 'Developed Python scripts using rclpy to perform inverse kinematics computations and execute motion plans to target poses.',
-        proj5_desc3: 'Designed and modeled a 3D-printed surgical gripper with an arc-shaped cavity for stable clamping of pen-type surgical tools (approx. 6–8 mm diameter).',
-        proj5_desc4: 'Imported the gripper model into Gazebo and validated grasping performance through repeated simulation trials.',
-        proj5_desc5: 'Implemented interactive control interfaces to adjust target positions and trigger grasp/release actions during simulation runtime.',
-        proj5_desc6: 'Verified coordinated motion and stability, demonstrating reliable pickup and placement of virtual surgical instruments.',
-        skills_prog_python: '<i class="fab fa-python"></i> Python (AI/ML, computer vision, data processing, simulation scripting)',
-        skills_prog_cpp: '<i class="fas fa-microchip"></i> C++ (real-time systems, TCP/IP, motion control)',
-        skills_prog_matlab: '<i class="fas fa-superscript"></i> Matlab',
-        skills_eng_autocad: '<i class="fas fa-drafting-compass"></i> AutoCAD (2D & 3D)',
-        skills_eng_creo: '<i class="fas fa-cube"></i> Creo',
-        skills_eng_solidworks: '<i class="fas fa-cubes"></i> SolidWorks',
-        skills_eng_powerfactory: '<i class="fas fa-bolt"></i> PowerFactory',
-        skills_eng_wpl: '<i class="fas fa-project-diagram"></i> WPL (PLC design)',
-        skills_rob_robotics: '<i class="fas fa-robot"></i> Robotics',
-        skills_rob_plc: '<i class="fas fa-project-diagram"></i> PLC',
-        skills_rob_cnc: '<i class="fas fa-industry"></i> CNC',
-        skills_rob_optomech: '<i class="fas fa-lightbulb"></i> OPTO-Mechatronics',
-        skills_rob_autocontrol: '<i class="fas fa-sliders-h"></i> Automatic Control',
-        skills_fw_yolov7: '<i class="fas fa-eye"></i> YOLOv7',
-        skills_fw_opencv: '<i class="fas fa-camera"></i> OpenCV',
-        skills_fw_mediapipe: '<i class="fas fa-hand-paper"></i> MediaPipe',
-        skills_fw_tfpt: '<i class="fas fa-brain"></i> TensorFlow / PyTorch',
-        skills_other_thermo: '<i class="fas fa-fire"></i> Thermodynamics',
-        skills_other_fluid: '<i class="fas fa-water"></i> Fluid Mechanics',
-        skills_other_git: '<i class="fab fa-git-alt"></i> Git',
-        skills_other_azure: '<i class="fab fa-microsoft"></i> Microsoft Azure',
-        lang_english: 'English',
-        lang_mandarin: 'Mandarin (Taiwanese)',
-        cert_ai900: 'Azure AI Fundamentals (AI-900) – Microsoft',
-        footer_contact: 'Contact Me',
-        footer_location: 'Wellington, New Zealand'
-      },
-      zh: {
-        page_title: 'James Chang - 個人作品集',
-        nav_about: '關於我',
-        nav_education: '學歷',
-        nav_experience: '經歷',
-        nav_projects: '專案',
-        nav_skills: '技能',
-        nav_certifications: '證照',
-        lang_toggle_title: '英文',
-        download_btn_title: '<i class="fas fa-download"></i>',
-        hero_title: '機電工程師 | 機器人與 AI 愛好者',
-        hero_location: '<i class="fas fa-map-marker-alt"></i> 紐西蘭威靈頓',
-        hero_phone: '<i class="fas fa-phone"></i> +64 2040039000',
-        skills_title: '技能',
-        skills_programming: '程式語言',
-        skills_engineering: '工程與模擬',
-        skills_robotics: '機器人與自動化',
-        skills_frameworks: '框架與函式庫',
-        skills_other: '其他技術',
-        languages_title: '語言',
-        certifications_title: '證照',
-        education_title: '學歷',
-        edu1_date: '2025<br>-<br>現在',
-        edu1_school: '維多利亞大學（Wellington）',
-        edu1_location: '紐西蘭威靈頓',
-        edu1_degree: '工程實務碩士（機電與電機工程）',
-        edu1_desc1: 'PowerFactory-DIgSILENT, SolidWorks, 工程管理, Git',
-        edu2_date: '2020<br>-<br>2024',
-        edu2_school: '淡江大學',
-        edu2_location: '台灣台北',
-        edu2_degree: '機械與電機工程學士 (光機電群)',
-        edu2_desc1: 'Python, C++, Matlab, 機器人, AutoCAD, Creo, PLC, CNC, 熱力學, 流體力學, 自動控制, 光機電',
-        experience_title: '專業經歷',
-        exp2022_date: '2022年6月<br>-<br>2022年9月',
-        exp2022_title: '實習生, 研發部門 I/測試開發驗證部門研發組 (Zebra / Denso行動專案)',
-        exp2022_company: 'ASKEY電腦股份有限公司, 台灣',
-        exp2022_desc1: '<strong>使用 PTC Creo 設計精密 3D 機構模型，執行尺寸驗證與干涉分析。</strong>',
-        exp2022_desc2: '<strong>協助執行熱模擬，評估熱源分佈並優化散熱設計。</strong>',
-        exp2022_desc3: '<strong>透過紅外熱像測試比對模擬與實體溫升，協助熱設計優化。</strong>',
-        exp2022_desc4: '<strong>使用 CNC 與軟模製程製作高擬真外觀與功能性原型，用於裝配與人體工學驗證。</strong>',
-        exp2022_desc5: '<strong>檢驗原型的配合度、組裝品質與表面細節，支援可製造性設計審查（DFM）。</strong>',
-        exp2022_desc6: '<strong>與工業設計、熱工與製造團隊協作，將優化設計導入 EVT 原型階段。</strong>',
-        exp2023_date: '2023年6月<br>-<br>2023年9月',
-        exp2023_title: '實習生, 研發部門 I/測試開發驗證部門研發組 (AGV專案)',
-        exp2023_company: 'ASKEY電腦股份有限公司, 台灣',
-        exp2023_group1: '一、自動化／智慧製造系統整合：',
-        exp2023_g1_1: '<strong>圖資整合：倉儲與廠區空間圖、貨架位置資訊的建置與整合。</strong>',
-        exp2023_g1_2: '<strong>定位整合：部署固定式感測器以同步倉儲與工廠的定位資料。</strong>',
-        exp2023_g1_3: '<strong>光學標定：透過地面光學標記實現車輛與座標點辨識。</strong>',
-        exp2023_g1_4: '<strong>導航規劃：開發無人運輸車移動與遞送之路徑控制機制。</strong>',
-        exp2023_g1_5: '<strong>無線通訊：藉由 Wi-Fi 基地台傳輸指令並同步車輛狀態與位置資訊。</strong>',
-        exp2023_g1_6: '<strong>運輸車配置：具備雷射測距儀、加速度感測器、陀螺儀、Wi-Fi 2.4G/5G、馬達與升降平台。</strong>',
-        exp2023_group2: '二、Android 智慧型裝置之設計驗證：',
-        exp2023_g2_1: '<strong>自動化測試系統程式設計（針對產品與設備量測）。</strong>',
-        exp2023_g2_2: '<strong>產品可靠度自動測試程式設計。</strong>',
-        exp2023_group3: '三、大數據與生產資料整合：',
-        exp2023_g3_1: '<strong>雲端生產數據系統分析。</strong>',
-        projects_title: '學術專案經歷',
-        proj1_title: '重新設計與增強教育型微控制器訓練套件',
-        proj1_goal: '目標：重新設計與增強教育型微控制器訓練套件',
-        proj1_desc1: '主導微控制器訓練平台的重設，強化結構耐用性、製造效率與操作安全。',
-        proj1_desc2: '使用 SolidWorks 設計模組化防護殼體，兼顧快速組裝與升級擴充需求。',
-        proj1_desc3: '進行熱流與跌落模擬，評估結構穩定性與實務使用下的熱傳行為。',
-        proj1_desc4: '導入可製造性設計原則（DFM），簡化 CNC 製程並降低生產難度。',
-        proj1_desc5: '整合 STM32 系列嵌入式硬體，優化內部配置以提升安全性與維修便利性。',
-        proj1_desc6: '提交包含 3D 圖檔、工程圖與組裝手冊之完整技術資料，支援量產導入。',
-        proj2_title: '使用SolidWorks進行房間通風模擬（CFD專案）',
-        proj2_goal: '目標：通過空氣流動模擬和設計優化提高室內通風性能。',
-        proj2_desc1: '在SolidWorks中進行計算流體動力學（CFD）模擬，評估個人房間佈局中的空氣流動分佈和通風效率。',
-        proj2_desc2: '分析通風口大小和位置對空氣交換率、循環效率和熱舒適度的影響。',
-        proj2_desc3: '識別由位置不當的進氣口和出氣口引起的滯留區，導致通風效率低下。',
-        proj2_desc4: '提出並實施了提高空氣交換效率10%的通風口佈局和修改。',
-        proj2_desc5: '獲得了實際的空間氣流設計、室內空氣品質和適用於封閉環境的熱動力學洞察。',
-        proj3_title: '機器人手臂界面開發（畢業專案 – 上銀科技合作）',
-        proj3_goal: '目標：設計一個自然且安全的機器人與人類交互界面，使用多模態輸入進行實時機器人控制。',
-        proj3_desc1: '開發結合 YOLOv7 視覺辨識與語音辨識的多模態介面，實現直覺式機器手臂操控。',
-        proj3_desc2: '建立訓練資料集並運用機器學習進行手勢與語音指令的分類強化與辨識。',
-        proj3_desc3: '開發了一個Python客戶端，用於前端處理影像與語音輸入，轉換為控制指令與座標資料。',
-        proj3_desc4: '設計了一個C++服務器端，採非阻塞 TCP/IP 傳輸，執行逆運動學與平滑插補以實現即時控制。',
-        proj3_desc5: '整合多項安全機制如接近感測、運動監控與緊急停止開關，強化人機協作安全性。',
-        proj3_desc6: '完成功能原型並交付 API 說明文件、標註資料集與座標校正工具，強化系統可重製性。',
-        proj4_title: '智能交通信號燈控制系統（控制系統專案）',
-        proj4_goal: '目標：根據實時行人/車輛檢測優化交叉口交通信號燈配時，並提供緊急響應路線。',
-        proj4_desc1: '使用 Delta PLC（DVP48EH）根據感測器輸入控制交通與行人燈號。',
-        proj4_desc2: '透過 Python 與 YOLOv5 進行行人、車輛與緊急訊號之即時辨識。',
-        proj4_desc3: '整合 GNSS 與 Wi-Fi 進行事件定位與緊急通行路線規劃。',
-        proj4_desc4: '設計影像與音訊融合邏輯（攝影機 + 麥克風）以辨識接近之救護車或消防車。',
-        proj4_desc5: '實作自適應號誌配時機制，有效緩解壅塞並提升路口通行效率。',
-        proj5_title: 'Kinova Gen3機器人手臂模擬與手術夾爪設計',
-        proj5_goal: '目標：開發一個基於ROS 2的模擬和控制框架，用於精確夾持手術工具與定制的3D列印夾爪。',
-        proj5_desc1: '於 Ubuntu 平台建構模擬環境，整合 ROS 2、MoveIt 2 與 Gazebo，操控 Kinova Gen3 六軸機器手臂。',
-        proj5_desc2: '編寫 Python（rclpy）腳本，進行逆運動學計算與運動路徑規劃，實現指定姿態移動。',
-        proj5_desc3: '設計並建構專為夾持筆型手術工具（約 6–8 mm）之 3D 列印夾爪，採用弧形凹槽增強穩定性。',
-        proj5_desc4: '將夾爪模型匯入 Gazebo，透過反覆模擬測試驗證其夾持與穩定性能。',
-        proj5_desc5: '開發可互動式調整目標位置與控制夾取／釋放動作之模擬操作介面。',
-        proj5_desc6: '驗證系統協調運動與穩定度，成功實現虛擬手術器械之可靠取放操作。',
-        skills_prog_python: '<i class="fab fa-python"></i> Python (人工智慧/機器學習, 電腦視覺, 資料處理, 模擬腳本)',
-        skills_prog_cpp: '<i class="fas fa-microchip"></i> C++ (即時系統, TCP/IP, 運動控制)',
-        skills_prog_matlab: '<i class="fas fa-superscript"></i> Matlab',
-        skills_eng_autocad: '<i class="fas fa-drafting-compass"></i> AutoCAD (2D & 3D)',
-        skills_eng_creo: '<i class="fas fa-cube"></i> Creo',
-        skills_eng_solidworks: '<i class="fas fa-cubes"></i> SolidWorks',
-        skills_eng_powerfactory: '<i class="fas fa-bolt"></i> PowerFactory',
-        skills_eng_wpl: '<i class="fas fa-project-diagram"></i> WPL (PLC 設計)',
-        skills_rob_robotics: '<i class="fas fa-robot"></i> 機器人學',
-        skills_rob_plc: '<i class="fas fa-project-diagram"></i> PLC',
-        skills_rob_cnc: '<i class="fas fa-industry"></i> CNC',
-        skills_rob_optomech: '<i class="fas fa-lightbulb"></i> 光機電',
-        skills_rob_autocontrol: '<i class="fas fa-sliders-h"></i> 自動控制',
-        skills_fw_yolov7: '<i class="fas fa-eye"></i> YOLOv7',
-        skills_fw_opencv: '<i class="fas fa-camera"></i> OpenCV',
-        skills_fw_mediapipe: '<i class="fas fa-hand-paper"></i> MediaPipe',
-        skills_fw_tfpt: '<i class="fas fa-brain"></i> TensorFlow / PyTorch',
-        skills_other_thermo: '<i class="fas fa-fire"></i> 熱力學',
-        skills_other_fluid: '<i class="fas fa-water"></i> 流體力學',
-        skills_other_git: '<i class="fab fa-git-alt"></i> Git',
-        skills_other_azure: '<i class="fab fa-microsoft"></i> Microsoft Azure',
-        lang_english: '英文',
-        lang_mandarin: '國語 (台灣)',
-        cert_ai900: 'Microsoft Azure AI 基礎認證 (AI-900)',
-        footer_contact: '聯絡我',
-        footer_location: '紐西蘭威靈頓'
-      }
-    };
-    function setLang(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (i18n[lang][key]) {
-          if (el.classList.contains('proj-link')) {
-            el.innerHTML = `${i18n[lang][key]} <i class="fas fa-file-pdf"></i>`;
-          } else if (el.id === 'langToggle' || el.id === 'downloadBtn') {
-            el.innerHTML = i18n[lang][key];
-          } else {
-            el.innerHTML = i18n[lang][key];
-          }
-        }
-      });
-      document.title = i18n[lang].page_title;
-      try {
-        localStorage.setItem('lang', lang);
-      } catch (e) {
-        console.warn('localStorage not available:', e);
-      }
-    }
-    setLang(currentLang);
-    langToggle.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'zh' : 'en';
-      setLang(currentLang);
-    });
-
-    // --- Back to Top Button ---
-    const backToTop = document.createElement('button');
-    backToTop.className = 'back-to-top';
-    backToTop.id = 'backToTop';
-    backToTop.title = 'Back to top';
-    backToTop.textContent = '↑';
-    document.body.appendChild(backToTop);
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('show', window.scrollY > 300);
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // --- PDF Link Error Handling ---
-    document.querySelectorAll('.proj-link').forEach(link => {
-      link.addEventListener('error', () => {
-        link.innerHTML = 'PDF not found';
-        link.style.color = '#d32f2f';
-        link.removeAttribute('href');
-      });
-    });
-
-    // --- One-Click Download as PDF ---
-    downloadBtn.addEventListener('click', () => {
-      try {
-        window.print();
-      } catch (e) {
-        console.warn('Print function not available:', e);
-        alert('Unable to open print dialog. Please use your browser\'s print function to save as PDF.');
-      }
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
